@@ -1,16 +1,17 @@
-﻿using Ecommerce.Api.Models;
+﻿
 using EcommerceBackend.Models;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+
 using Microsoft.EntityFrameworkCore;
 
 namespace EcommerceBackend.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class AppDbContext : DbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-            : base(options) { }
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-        public DbSet<Empresa> Empresas { get; set; } = null!;
-        public DbSet<Producto> Productos { get; set; } = null!;
+        public DbSet<Product> Products => Set<Product>();
+        public DbSet<User> Users => Set<User>();
+        public DbSet<Order> Orders => Set<Order>();
+        public DbSet<OrderItem> OrderItems => Set<OrderItem>();
     }
 }

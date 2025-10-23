@@ -1,13 +1,10 @@
-﻿using Microsoft.AspNetCore.Identity;
-
-namespace Ecommerce.Api.Models
+﻿namespace EcommerceBackend.Models
 {
-    public class ApplicationUser : IdentityUser
+    public class User
     {
-        public string? Nombre { get; set; }
-        public string? Apellido { get; set; }
-
-        // Si el usuario es una empresa, asociaciones
-        public Guid? EmpresaId { get; set; }
+        public int Id { get; set; }
+        public string Username { get; set; } = string.Empty;
+        public string PasswordHash { get; set; } = string.Empty;
+        public string Role { get; set; } = "Customer";
     }
 }
